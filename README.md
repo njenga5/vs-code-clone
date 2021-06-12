@@ -1,5 +1,5 @@
 # Project VS Code Clone
-A project using ![electron](https://www.electronjs.org) and  ![React](https://www.reactjs.org) to try and replicate ![visual studio code](https://code.visualstudio.com) and learn electronjs in the process.
+A project using [electron](https://www.electronjs.org) and  [React](https://www.reactjs.org) to try and replicate [visual studio code](https://code.visualstudio.com) and learn electronjs in the process.
 
 ## Install and test it out
 ```sh
