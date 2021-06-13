@@ -1,10 +1,19 @@
 import { useState } from "react";
-import { IconButton, Toolbar, Typography, makeStyles, Paper, Button } from "@material-ui/core";
+import {
+  IconButton,
+  Toolbar,
+  Typography,
+  makeStyles,
+  Paper,
+  Button,
+  Drawer,
+  Tooltip
+} from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import { FiMinimize2, FiMaximize2 } from "react-icons/fi";
 import "./App.css";
 import Editor from "./components/Editor";
-import menuBtns from './buttons'
+import menuBtns from "./buttons";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -20,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   iconbtn: {
     marginLeft: theme.spacing(2),
+  },
+  paperAnchorBottom: {
+    left: theme.spacing(6),
   },
 }));
 
@@ -37,16 +49,14 @@ function App() {
       <div className="draggable">
         <div className="no-drag">
           <Paper elevation={0} className={classes.paper}>
-            {
-              menuBtns.map((item)=>(
-            <Button
-            key={item.id}
-              className={classes.button}
-              onClick={(e)=>handleClick(e, item.id)}>
-              {item.title}
-            </Button>
-              ))
-            }
+            {menuBtns.map((item) => (
+              <Button
+                key={item.id}
+                className={classes.button}
+                onClick={(e) => handleClick(e, item.id)}>
+                {item.title}
+              </Button>
+            ))}
           </Paper>
         </div>
         <div>
@@ -55,36 +65,50 @@ function App() {
         <div className="no-drag">
           <div className={classes.controls}>
             <Toolbar variant="dense">
-              <IconButton
-                edge="end"
-                onClick={() => window.minimizeWindow()}
-                ize="small"
-                className={classes.iconbtn}>
-                &minus;
-              </IconButton>
-              <IconButton
-                edge="end"
-                onClick={() => {
-                  window.maxUnmaxWindow();
-                  setMaximized(window.isWindowMaximized());
-                }}
-                size="small"
-                className={classes.iconbtn}>
-                {maximized ? <FiMinimize2 /> : <FiMaximize2 />}
-              </IconButton>
-              <IconButton
-                edge="end"
-                size="small"
-                onClick={() => window.closeWindow()}
-                color="secondary"
-                className={classes.iconbtn}>
-                <CloseIcon fontSize="small" />
-              </IconButton>
+              <Tooltip title="Minimize">
+                <IconButton
+                  edge="end"
+                  onClick={() => window.minimizeWindow()}
+                  ize="small"
+                  className={classes.iconbtn}>
+                  &minus;
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Maximize">
+                <IconButton
+                  edge="end"
+                  onClick={() => {
+                    window.maxUnmaxWindow();
+                    setMaximized(window.isWindowMaximized());
+                  }}
+                  size="small"
+                  className={classes.iconbtn}>
+                  {maximized ? <FiMinimize2 /> : <FiMaximize2 />}
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Close">
+                <IconButton
+                  edge="end"
+                  size="small"
+                  onClick={() => window.closeWindow()}
+                  color="secondary"
+                  className={classes.iconbtn}>
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
             </Toolbar>
           </div>
         </div>
       </div>
+      <div style={{ height: 50, background: "aqua", marginBottom: 5 }}></div>
       <Editor />
+      <Drawer
+        anchor="bottom"
+        open={true}
+        variant="persistent"
+        classes={{ paperAnchorBottom: classes.paperAnchorBottom }}>
+        <div style={{ height: 50, background: "aqua", marginBottom: 5 }}></div>
+      </Drawer>
     </>
   );
 }

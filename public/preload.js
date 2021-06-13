@@ -1,5 +1,6 @@
 const remote = require("@electron/remote");
 const ipc = require("electron").ipcRenderer;
+
 const path = require('path')
 
 function ensureFirstBackSlash(str) {
