@@ -66,10 +66,10 @@ menuTemplates = [
       {
         label:'Autosave',
         type:"checkbox",
-        click:(menuItem, win, e)=>{
+        click(menuItem, win, e){
           menuItem.checked = !menuItem.checked
         },
-        checked:true
+        checked:false
       },
       {
         label:'Preferences',
