@@ -2,7 +2,10 @@
 
 A project using [electron](https://www.electronjs.org) and [React](https://www.reactjs.org) to try and replicate [visual studio code](https://code.visualstudio.com) and learn electronjs in the process.
 
-![](/thumbnails/vsclone.png)
+![](/thumbnails/vsclone2.png)
+![](/thumbnails/vsclone3.png)
+![](/thumbnails/vsclone4.png)
+![](/thumbnails/vsclone5.png)
 
 ## Install and test it out
 
