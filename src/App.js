@@ -100,15 +100,15 @@ function App() {
           </div>
         </div>
       </div>
-      <div style={{ height: 50, background: "aqua", marginBottom: 5 }}></div>
+      {/* <div style={{ height: 50, background: "aqua", marginBottom: 5 }}></div> */}
       <Editor />
-      <Drawer
+      {/* <Drawer
         anchor="bottom"
         open={true}
         variant="persistent"
         classes={{ paperAnchorBottom: classes.paperAnchorBottom }}>
         <div style={{ height: 50, background: "aqua", marginBottom: 5 }}></div>
-      </Drawer>
+      </Drawer> */}
     </>
   );
 }
